@@ -5,7 +5,7 @@
         <form action="" @submit.prevent>
             <div>
                 <label for="">First name</label>
-                <input v-model="firstNam" type="text">
+                <input v-model.lazy="firstNam" type="text">
                 <p> result is {{ firstNam }}</p>
             </div>
             <hr/>
@@ -19,6 +19,8 @@
             <div>
                 <label for="">Email</label>
                 <input v-model="firstNam" type="text">
+                <p> result is {{ firstNam }}</p>
+
             </div>
             <hr/>
             <div>
