@@ -5,6 +5,9 @@ import {
 import MyMain from "@/views/MyMain.vue";
 import TryComp from "@/views/TryComp.vue";
 import AboutPage from "@/views/AboutPage.vue";
+import MyLearnings from "@/views/MyLearnings.vue";
+import MyWishlist from "@/views/MyWishlist.vue";
+import NotFound from "@/views/NotFound.vue";
 
 
 const routes = [
@@ -18,11 +21,24 @@ const routes = [
   },
   {
     name: "try",
-    path: "/nad/:userid",
+    path: "/nad",
     component: TryComp,
     meta: {
       title: "nad",
     },
+    children: [
+      {
+        name: "MyLearnings",
+        path: "My-Learnings", // Child routes are relative to "/nad"
+        component: MyLearnings,
+      },
+      {
+        name: "MyWishlist",
+        path: "My-Wishlist",
+        component: MyWishlist,
+      },
+    
+    ],
   },
   {
     name: "AboutPage",
@@ -32,15 +48,19 @@ const routes = [
       title: "AboutPage",
     },
   },
+    {
+      name: "NotFound",
+      path: "/:pathMathch(.*)",
+      component: NotFound,
+      
+    },
+  
 ];
 const router = createRouter({
   history: createWebHistory(),
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-    document.title = to.meta.title;
-    next();
-});
+
 
 export default router;

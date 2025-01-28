@@ -30,6 +30,7 @@ export default({
    },
    mounted (){
     this.myRoutes = this.$router.options.routes
+    console.log(this.$route)
    }
 })
 </script>
