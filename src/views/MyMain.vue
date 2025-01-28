@@ -1,14 +1,13 @@
 <template>
   <div class="my-main">
     <MyComponant />
+    <button @click="routerfinc">click me</button>
     <div class="product">
       <ul>
-        <li  v-maxSize = "40" v-for="product in products" :key="product.id">
-          <p> Brande: {{ product.brand }} </p>
-
+        <li v-maxSize="40" v-for="product in products" :key="product.id">
+          <p>Brande: {{ product.brand }}</p>
         </li>
       </ul>
-
     </div>
   </div>
 </template>
@@ -20,8 +19,16 @@ export default {
   components: {
     MyComponant,
   },
-  mixins:[stMixin]
-  
+  mixins: [stMixin],
+  methods: {
+    routerfinc() {
+      this.$router.go(1);
+    },
+  },
+
+  mounted() {
+    console.log(this.$router);
+  },
 };
 </script>
 

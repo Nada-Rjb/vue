@@ -4,7 +4,9 @@
         <div class="logo"> <img src="@/assets/logo.png" alt="logo"/></div>
         <div class="links">
             <ul>
-                <li v-for="link in links" :key="link"> {{ link }}</li>
+                <li v-for="link in myRoutes" :key="link.name"> 
+                    <router-link :to="link.path"> {{link.meta.title}}</router-link>
+                </li>
             </ul>
         </div>
 
@@ -23,7 +25,11 @@ export default({
     return{
         logo:"My Logo",
         links:["link1","link2"],
+        myRoutes:[],
     }
+   },
+   mounted (){
+    this.myRoutes = this.$router.options.routes
    }
 })
 </script>
