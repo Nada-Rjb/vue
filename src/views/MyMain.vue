@@ -22,12 +22,12 @@ export default {
   mixins: [stMixin],
   methods: {
     routerfinc() {
-      this.$router.go(1);
+      this.$router.replace({ name: "AboutPage" });
     },
   },
 
   mounted() {
-    console.log(this.$router);
+    console.log(this.$router.hasRoute("AboutPage"));
   },
 };
 </script>
